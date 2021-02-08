@@ -22,7 +22,7 @@ export const compareScreenshots = path => {
                 visualRegression(
                     screenshot,
                     snapshot,
-                    `${Cypress.config('screenshotsFolder')}/insert.spec.ts/${screenshotNameTimestamp}-result.png`
+                    `${Cypress.config('screenshotsFolder')}/${path}/${screenshotNameTimestamp}-result.png`
                 );
             });
         }
