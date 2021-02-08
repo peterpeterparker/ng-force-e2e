@@ -1,25 +1,17 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+Cypress.Commands.add('init', () => {
+    cy.visit('/');
+});
+
+Cypress.Commands.add('initPDFWorker', () => {
+    return cy.intercept('https://cdnjs1.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js', {
+        body: require('../fixtures/pdf.worker.min.json').content,
+        headers: { 'Content-Type': 'application/javascript' }
+    });
+});
+
+declare namespace Cypress {
+    interface Chainable<Subject> {
+        init(): Chainable<void>;
+        initPDFWorker(): Chainable<void>;
+    }
+}
