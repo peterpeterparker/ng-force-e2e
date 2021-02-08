@@ -17,7 +17,7 @@ interface Annotation extends PDFAnnotationData {
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = '//cdnjs1.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js';
 
-describe('Download', () => {
+describe('PDF', () => {
     before(() => {
         cy.init();
     });
