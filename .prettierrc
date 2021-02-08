@@ -1,0 +1,16 @@
+{
+    "endOfLine": "auto",
+    "arrowParens": "avoid",
+    "trailingComma": "none",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": "*.html",
+            "options": {
+                "parser": "angular"
+            }
+        }
+    ]
+}
